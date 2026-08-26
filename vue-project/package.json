@@ -1,42 +1,29 @@
 {
-  "name": "vue-project",
-  "version": "0.0.0",
+  "name": "learning-tracker-web",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "axios": "^1.11.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
-    "vue": "rc"
+    "pinia": "^3.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.8",
-    "prettier": "3.9.5",
-    "vite": "^8.1.5",
-    "vite-plugin-vue-devtools": "^8.1.5"
+    "@vitejs/plugin-vue": "^6.0.1",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.2"
   },
   "engines": {
-    "node": "^22.18.0 || >=24.12.0"
-  },
-  "overrides": {
-    "vue": "rc",
-    "@vue/compiler-core": "rc",
-    "@vue/compiler-dom": "rc",
-    "@vue/compiler-sfc": "rc",
-    "@vue/compiler-ssr": "rc",
-    "@vue/compiler-vapor": "rc",
-    "@vue/reactivity": "rc",
-    "@vue/runtime-core": "rc",
-    "@vue/runtime-dom": "rc",
-    "@vue/runtime-vapor": "rc",
-    "@vue/server-renderer": "rc",
-    "@vue/shared": "rc",
-    "@vue/compat": "rc"
+    "node": ">=20.19.0"
   }
 }

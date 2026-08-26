@@ -1,23 +1,13 @@
 <script setup>
-import { ref } from 'vue'
-import MainPage from './pages/MainPage.vue'
+import { useAuthStore } from '@/stores/auth'
+import AppNavbar from '@/components/AppNavbar.vue'
 
-const showMainPage = ref(false)
+const auth = useAuthStore()
 </script>
 
 <template>
-  <MainPage v-if="showMainPage" />
-
-  <template v-else>
-    <h1>You did it!</h1>
-    <p>
-      Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-      documentation
-    </p>
-    <button class="btn btn-primary" type="button" @click="showMainPage = true">
-      <i class="bi bi-plus-circle"></i>
-    </button>
-  </template>
+  <div class="app-shell">
+    <AppNavbar v-if="auth.isAuthenticated" />
+    <RouterView />
+  </div>
 </template>
-
-<style scoped></style>
