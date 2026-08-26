@@ -22,7 +22,10 @@ export async function authenticate(req, res, next) {
 
     req.user = user
     next()
-  } catch {
-    return res.status(401).json({ message: 'Your session is invalid or has expired.' })
+  } catch (error) {
+    if (error instanceof jwt.JsonWebTokenError || error instanceof jwt.TokenExpiredError) {
+      return res.status(401).json({ message: 'Your session is invalid or has expired.' })
+    }
+    return next(error)
   }
 }
