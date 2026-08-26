@@ -18,7 +18,7 @@ const form = reactive({
   title: '',
   content: '',
   codeSnippet: '',
-  learnedAt: new Date().toISOString().slice(0, 10),
+  learnedAt: new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10),
   categoryId: '',
 })
 
