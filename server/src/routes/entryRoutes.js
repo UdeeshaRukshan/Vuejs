@@ -10,7 +10,12 @@ const entrySchema = z.object({
   title: z.string().trim().min(1).max(160),
   content: z.string().trim().min(1).max(20000),
   codeSnippet: z.string().max(20000).optional().nullable().transform((value) => value || null),
-  learnedAt: z.iso.date(),
+  learnedAt: z
+    .string()
+    .trim()
+    .refine((value) => /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00.000Z`)), {
+      message: 'Expected a valid ISO date (YYYY-MM-DD).',
+    }),
   categoryId: z.string().min(1),
 })
 
